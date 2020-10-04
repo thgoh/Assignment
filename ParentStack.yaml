@@ -1,12 +1,30 @@
 Resources:
+  MySqlStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/MySQLv2.yaml"
 
   DynamoStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://github.com/thgoh/Assignment/blob/main/nested/dynamodbv2.yaml"
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/dynamodbv2.yaml"
       
   SnsStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://github.com/thgoh/Assignment/blob/main/nested/dynamodbv2.yaml"
-          
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/sns.yaml"
+  
+  LambdaStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV2.yaml"
+      
+  S3Stack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/s3.yaml"
+
+  IamStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/iam_role.yaml"      
