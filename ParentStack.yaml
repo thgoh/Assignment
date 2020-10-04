@@ -8,3 +8,9 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/dynamodbv2.yaml"
+      
+  SnsStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/sns.yaml"
+          
