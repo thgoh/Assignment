@@ -8,23 +8,23 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/dynamodbv2.yaml"
-      
-  SnsStack:
-    Type: 'AWS::CloudFormation::Stack'
-    Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/sns.yaml"
   
   LambdaStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV3.yaml"
       
-  S3Stack:
+  NatGWStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/s3.yaml"
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
 
-  IamStack:
+  CognitoStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/iam_role.yaml"      
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/cognito.yaml"      
+  
+  AppSyncStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/AppSync.yaml"   
