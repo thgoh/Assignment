@@ -14,10 +14,10 @@ Resources:
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV3.yaml"
       
-  NatGWStack:
-    Type: 'AWS::CloudFormation::Stack'
-    Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
+#  NatGWStack:
+#    Type: 'AWS::CloudFormation::Stack'
+#    Properties:
+#      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
 
   CognitoStack:
     Type: 'AWS::CloudFormation::Stack'
