@@ -17,7 +17,7 @@ Resources:
   LambdaStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV2.yaml"
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV3.yaml"
       
   S3Stack:
     Type: 'AWS::CloudFormation::Stack'
