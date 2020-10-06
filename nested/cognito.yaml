@@ -1,0 +1,9 @@
+Resources:
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      UserPoolName: Test-UserPool
+      UsernameAttributes:
+        - email

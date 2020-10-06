@@ -1,0 +1,6 @@
+Resources:
+  GraphQLApi:
+    Type: "AWS::AppSync::GraphQLApi"
+    Properties:
+      Name: AWSAppSync DynamoDB Example
+      AuthenticationType: AWS_IAM

@@ -1,0 +1,22 @@
+# Creating NAT Gateway in public subnet-6313e905 and the private subnet route table to the NAT gateway 
+
+Resources:
+    NAT:
+       Type: AWS::EC2::NatGateway
+       Properties:
+          AllocationId:
+             Fn::GetAtt:
+             - EIP
+             - AllocationId
+          SubnetId: subnet-6313e905
+    EIP:
+       Type: AWS::EC2::EIP
+       Properties:
+         Domain: vpc
+    Route:
+       Type: AWS::EC2::Route
+       Properties:
+          RouteTableId: rtb-0c737544aca802f00
+          DestinationCidrBlock: 0.0.0.0/0
+          NatGatewayId:
+             Ref: NAT

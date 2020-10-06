@@ -1,0 +1,32 @@
+# Creating MySQL Instance in custom VPC
+Resources:  
+  MyDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBSecurityGroups:
+      - Ref: DBSecurityGroup
+      AllocatedStorage: '5'
+      DBInstanceClass: db.t2.micro
+      Engine: MySQL
+      MasterUsername: MyName
+      MasterUserPassword: MyPassword
+    DeletionPolicy: Delete
+
+  DBSecurityGroup:
+    Type: AWS::RDS::DBSecurityGroup
+    Properties:
+      DBSecurityGroupIngress:
+        EC2SecurityGroupName:
+          Ref: WebServerSecurityGroup
+      GroupDescription: Frontend Access
+      EC2VpcId: vpc-7867761f
+        
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable MySQL access via port 3306
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '3306'
+        ToPort: '3306'
+        CidrIp: 0.0.0.0/0
