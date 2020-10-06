@@ -1,7 +1,0 @@
-Resources:
-    MySNSTopic:
-      Type: AWS::SNS::Topic
-      Properties:
-        Subscription:
-        - Endpoint: "user@user.com"
-          Protocol: email
