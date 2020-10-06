@@ -1,30 +1,36 @@
 Resources:
-  MySqlStack:
+      
+  NatGWStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/MySQLv2.yaml"
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
 
   DynamoStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/dynamodbv2.yaml"
-  
+    DependsOn: NatGWStack
+      
   LambdaStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/lambdaV3.yaml"
-      
-#  NatGWStack:
-#    Type: 'AWS::CloudFormation::Stack'
-#    Properties:
-#      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
-
+    DependsOn: DynamoStack  
+  
   CognitoStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/cognito.yaml"      
+    DependsOn: LambdaStack  
   
   AppSyncStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/AppSync.yaml"   
+    DependsOn: CognitoStack
+      
+  MySqlStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/MySQLv2.yaml"
+    DependsOn: AppSyncStack
