@@ -1,9 +1,9 @@
 Resources:
       
-#  NatGWStack:
-#    Type: 'AWS::CloudFormation::Stack'
-#    Properties:
-#      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
+  NatGWStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: "https://goh-cfn-bucket.s3-ap-southeast-1.amazonaws.com/natGW.yaml"
 
   DynamoStack:
     Type: 'AWS::CloudFormation::Stack'
